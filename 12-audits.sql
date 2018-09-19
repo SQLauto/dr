@@ -1,0 +1,34 @@
+﻿/*
+	Created by WORKSTATION\loulou using dbatools Export-DbaScript for objects on workstation$sql2016 at 09/14/2018 14:02:56
+	See https://dbatools.io/Export-DbaScript for more information
+*/
+CREATE SERVER AUDIT [Audit-20160502-100608]
+TO FILE 
+(	FILEPATH = N'C:\temp\'
+	,MAXSIZE = 0 MB
+	,MAX_ROLLOVER_FILES = 2147483647
+	,RESERVE_DISK_SPACE = OFF
+)
+WITH
+(	QUEUE_DELAY = 1000
+	,ON_FAILURE = CONTINUE
+	,AUDIT_GUID = '747bf52a-aaf8-4fbd-b977-ca4dfccabb9f'
+)
+ALTER SERVER AUDIT [Audit-20160502-100608] WITH (STATE = ON)
+GO
+
+CREATE SERVER AUDIT [Audit-20170210-150427]
+TO FILE 
+(	FILEPATH = N'C:\temp\'
+	,MAXSIZE = 5 MB
+	,MAX_FILES = 5
+	,RESERVE_DISK_SPACE = ON
+)
+WITH
+(	QUEUE_DELAY = 1000
+	,ON_FAILURE = CONTINUE
+	,AUDIT_GUID = 'd8f3ef88-2d08-4938-926b-106d86d11cde'
+)
+ALTER SERVER AUDIT [Audit-20170210-150427] WITH (STATE = OFF)
+GO
+
